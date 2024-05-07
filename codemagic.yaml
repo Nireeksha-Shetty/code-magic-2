@@ -1,0 +1,41 @@
+workflows:
+  dev:
+    name: Dev
+    max_build_duration: 120
+    environment:
+      flutter: 3.3.0
+      xcode: 14.2
+      java: 17
+      cocoapods: default
+    scripts:
+      - |
+        # set up key.properties
+        echo $FCI_KEYSTORE | base64 --decode > $FCI_KEYSTORE_PATH
+        cat >> "$FCI_BUILD_DIR/android/key.properties" <<EOF
+        storePassword=$FCI_KEYSTORE_PASSWORD
+        keyPassword=$FCI_KEY_PASSWORD
+        keyAlias=$FCI_KEY_ALIAS
+        storeFile=/tmp/keystore.keystore
+        EOF
+      - flutter channel beta
+      - flutter upgrade
+      - flutter build apk --release --flavor dev -t lib/main_dev.dart
+      - find . -name "Podfile" -execdir pod install \;
+      - keychain initialize
+      - app-store-connect fetch-signing-files "net.mtmlink.member.dev" --type IOS_APP_DEVELOPMENT
+        --create
+      - keychain add-certificates
+      - flutter build ios --release --flavor dev -t lib/main_dev.dart --no-codesign
+      - xcode-project use-profiles
+      - xcode-project build-ipa --workspace "ios/Runner.xcworkspace" --scheme "dev"
+    artifacts:
+      - build/**/outputs/apk/**/*.apk
+      - build/**/outputs/bundle/**/*.aab
+      - build/**/outputs/**/mapping.txt
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+      - flutter_drive.log
+    publishing:
+      email:
+        recipients:
+          -  dkumarpulapakura@mtm-inc.net

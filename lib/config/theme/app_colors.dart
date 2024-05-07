@@ -1,0 +1,24 @@
+import 'package:flutter/material.dart';
+
+const kMTMDarkBlue = Color(0xFF024F6E);
+const kMTMLightBlue = Color(0XFF4F81A1);
+const kMTMGreen = Color(0XFF008767);
+const kMTMLightGreen = Color(0XFFBCCF3C);
+const kMTMRed = Color(0XFFC84B4B);
+const kMTMTypeGray = Color(0XFF6B6B6E);
+const kMTMBorderLineGray = Color(0XFFDCDDDE);
+const kMTMLightBtnGray = Color(0XFFC1C1C1);
+const kMTMWhite = Colors.white;
+const kMTMDarkCardColor = Color(0XFF191919);
+const kMTMLightCardColor = Color(0xFFF2F3F4);
+const kMTMPalePink = Color(0XFFBA82BD);
+const kMTMOrangeRouteStart = Color(0XFFf1822c);
+const kMTMGreenRouteEnd = Color(0xFFCEDA78);
+const kMTMPurple = Color(0XFF8F3895);
+const kMTMGreenReadyBtn = Color(0XFF38761d);
+const kMTMSkyBlue = Color(0XFF5ccffd);
+const kMTMBlueRepeatingInfo = Color(0xFF1B89EE);
+const kMTMRepeatingInfoText = Color(0xff333333);
+const kMTMInactiveWhite = Color(0xFFF8F4F4);
+const kMTMInactiveBlue = Color(0xFFC0D3DB);
+const kMTMDarkRed =  Color(0xffD42E17);
