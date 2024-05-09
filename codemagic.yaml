@@ -41,10 +41,12 @@ workflows:
       firebase:
         firebase_token: 1//0gnq2pcEn2DCFCgYIARAAGBASNwF-L9IrMX40NbJZZB5sK7--Ux-MXMQSYtZjqwNwCDsmKj5gI-epMhd55DxtvVmD5dOi_4GuZzg
         ios:
-          app_id: 1:152131913233:ios:aa1c6a73ce32e4863553b0
+          app_id: 1:152131913233:ios:d81a7d9a6d660cec3553b0
           groups:
             - member-ios
         android:
           app_id: 1:152131913233:android:b227ea7688f5cc673553b0
           groups:
             - member-android
+
+            
