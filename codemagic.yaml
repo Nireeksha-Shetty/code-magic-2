@@ -18,8 +18,9 @@ workflows:
       java: 17
       cocoapods: default
     scripts:
-    # set up key.properties
-      -
+     scripts:
+      # set up key.properties
+      - |
         echo "FCI_KEYSTORE: $FCI_KEYSTORE"
         echo "FCI_KEYSTORE_PATH: $FCI_KEYSTORE_PATH"
         echo "FCI_KEYSTORE_PASSWORD: $FCI_KEYSTORE_PASSWORD"
@@ -31,7 +32,7 @@ workflows:
         keyPassword=$FCI_KEY_PASSWORD
         keyAlias=$FCI_KEY_ALIAS
         storeFile=/tmp/keystore.keystore
-        EOF
+EOF
       - flutter channel beta
       - flutter upgrade
       - flutter build apk --release --flavor dev -t lib/main_dev.dart
