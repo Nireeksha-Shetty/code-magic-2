@@ -20,11 +20,11 @@ workflows:
     scripts:
       # set up key.properties
       - |
-        echo "FCI_KEYSTORE: $FCI_KEYSTORE"
+        echo "FCI_KEYSTORE: $KEYSTORE_FCI_KEYSTORE"
         echo "FCI_KEYSTORE_PATH: $FCI_KEYSTORE_PATH"
-        echo "FCI_KEYSTORE_PASSWORD: $FCI_KEYSTORE_PASSWORD"
-        echo "FCI_KEY_PASSWORD: $FCI_KEY_PASSWORD"
-        echo "FCI_KEY_ALIAS: $FCI_KEY_ALIAS"
+        echo "FCI_KEYSTORE_PASSWORD: $KEYSTORE_FCI_KEYSTORE_PASSWORD"
+        echo "FCI_KEY_PASSWORD: $KEYSTORE_FCI_KEY_PASSWORD"
+        echo "FCI_KEY_ALIAS: $KEYSTORE_FCI_KEY_ALIAS"
         echo $FCI_KEYSTORE | base64 --decode > $FCI_KEYSTORE_PATH
         cat >> "$FCI_BUILD_DIR/android/key.properties" <<EOF
         storePassword=$FCI_KEYSTORE_PASSWORD
