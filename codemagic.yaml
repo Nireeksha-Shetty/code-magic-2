@@ -18,7 +18,7 @@ workflows:
       java: 17
       cocoapods: default
     scripts:
-    set up key.properties
+    # set up key.properties
       -
         echo $FCI_KEYSTORE | base64 --decode > $FCI_KEYSTORE_PATH
         cat >> "$FCI_BUILD_DIR/android/key.properties" <<EOF
