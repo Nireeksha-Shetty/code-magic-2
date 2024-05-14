@@ -18,7 +18,6 @@ workflows:
       java: 17
       cocoapods: default
     scripts:
-     scripts:
       # set up key.properties
       - |
         echo "FCI_KEYSTORE: $FCI_KEYSTORE"
