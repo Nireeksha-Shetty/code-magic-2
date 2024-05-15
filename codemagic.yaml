@@ -30,7 +30,6 @@ workflows:
         keyAlias=$FCI_KEY_ALIAS
         storeFile=/tmp/keystore.keystore
         EOF
-      - |
       - flutter channel beta
       - flutter upgrade
       - flutter build apk --release --flavor dev -t lib/main_dev.dart
