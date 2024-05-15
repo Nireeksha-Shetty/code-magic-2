@@ -22,14 +22,24 @@ workflows:
     scripts:
       # set up key.properties
       - |
-        # set up key.properties
-        echo $FCI_KEYSTORE | base64 --decode > $FCI_KEYSTORE_PATH
+        # # set up key.properties
+        # echo $FCI_KEYSTORE | base64 --decode > $FCI_KEYSTORE_PATH
+        # cat >> "$FCI_BUILD_DIR/android/key.properties" <<EOF
+        # storePassword=$FCI_KEYSTORE_PASSWORD
+        # keyPassword=$FCI_KEY_PASSWORD
+        # keyAlias=$FCI_KEY_ALIAS
+        # storeFile=/tmp/keystore.keystore
+        # EOF
         cat >> "$FCI_BUILD_DIR/android/key.properties" <<EOF
-        storePassword=$FCI_KEYSTORE_PASSWORD
-        keyPassword=$FCI_KEY_PASSWORD
-        keyAlias=$FCI_KEY_ALIAS
+        storePassword=testing_store_password
+        keyPassword=testing_key_password
+        keyAlias=testing_key_alias
         storeFile=/tmp/keystore.keystore
         EOF
+
+        # Verify if the file is written
+        echo "Contents of key.properties:"
+        cat "$FCI_BUILD_DIR/android/key.properties"
       - flutter channel beta
       - flutter upgrade
       - flutter build apk --release --flavor dev -t lib/main_dev.dart
