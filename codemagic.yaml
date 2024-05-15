@@ -36,6 +36,10 @@ workflows:
         keyAlias=testing_key_alias
         storeFile=/tmp/keystore.keystore
         EOF
+        ls -l "$FCI_BUILD_DIR/android/key.properties"
+
+        # Check permissions of the parent directory
+        ls -ld "$FCI_BUILD_DIR/android" 
 
         # Verify if the file is written
         echo "Contents of key.properties:"
